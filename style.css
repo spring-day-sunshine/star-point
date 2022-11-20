@@ -1,0 +1,136 @@
+img{
+    vertical-align: top;
+}
+h1{
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+button{
+    all:unset;
+}
+body{
+    background-image: url('images/bg.jpg');
+}
+
+.card{
+    background-color: #fff;
+    width: 600px;
+    margin: 40px auto;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
+    position: relative;
+}
+
+.card::before{
+    content: '';
+    background-color: black;
+    filter: blur(20px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    opacity: 0.5;
+    transform: translateY(50%);
+    z-index: -1;
+    border-radius: 50%;    
+}
+
+.card-header{
+    background-color: #eee;
+    position: relative;
+    
+}
+.card-title{
+    box-shadow: inset 0 0 100px white;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    /* inset: 0;  뿌옇게 보인다*/
+    /* box-sizing: border-box; */
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    /* align-items: stretch 로 되어있어서 높이값이 나온다 그래서 바꾼다 */
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 1),
+                 4px 4px 0px purple ;               
+    
+}
+.card-title h1{
+    /* background-color: dodgerblue; */
+    /* flex-basis:auto ; */
+}
+.card-icon{
+    width: 100px;
+    /* position: absolute; 를 쓰지 않는다*/
+    margin-top: -100px;
+}
+
+.card-footer{
+    /* background-color: #999; */
+    padding: 20px;
+    display: flex;
+    /* justify-content: space-between; */
+    /*margin-right: auto;도 */
+}
+.rating{
+    /* background-color: gold;  */
+    /* box-shadow: inset 0 0 10px blue; */
+    width: 240px;
+    height: 48px;
+    background-image: url(images/star-icon.png);
+    background-size: 240px 96px;
+    overflow: hidden;
+} 
+.rating::before{
+    content: ' ';
+    /* background-color: orange; */
+    width: 0px;
+    height: inherit;
+    /* 가상요소는 width heigth가 적용일 안되서 display:block를 한다*/
+    display: block;
+    background-image: inherit;
+    background-position: left bottom;    
+    background-size: inherit;
+}  
+
+.rating_1::before{ width: 20%; }
+.rating_2::before{ width: 40%; }
+.rating_3::before{ width: 60%; }
+.rating_4::before{ width: 80%; }
+.rating_5::before{ width: 100%; }
+
+.card-action{
+    /* background-color: violet; */
+    margin-left: auto;
+    display: flex;
+    gap:4px;
+}
+.card-action button{
+    width: 50px;
+    height: 50px;
+    /* background-color: dodgerblue; */
+    background-image: url(images/like.png);
+    border-radius: 50px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    text-indent: -9999%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-position-y .4s;
+}
+.card-action button.like{
+    transform: rotate(0);
+}
+.card-action button.unlike{
+    transform: rotate(180deg);
+}
+.card-action button:hover{
+    background-color: #efefef;
+    background-position-y: -50px;
+}
